@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -170,4 +171,144 @@ func main() {
 	s = strconv.FormatFloat(f, 'f', 2, 64)
 	fmt.Printf("Result: %s\n", s)
 
+	/*
+		День 3
+		Практика и ДЗ
+	*/
+
+	//Максимум из двух чисел
+	var a, b int
+
+	fmt.Println("Введи два числа")
+
+	_, err = fmt.Scanln(&a, &b)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	if a > b {
+		fmt.Println("Максимум:", a)
+	} else if a < b {
+		fmt.Println("Максимум:", b)
+	} else {
+		fmt.Println("Числа равны")
+	}
+
+	//Максимум из трех чисел
+	var c, d, e int
+
+	fmt.Println("Введи три числа")
+
+	_, err = fmt.Scanln(&c, &d, &e)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	if c > d {
+		if c > e {
+			fmt.Println("Максимум:", c)
+		}
+	} else if d > c {
+		if d > e {
+			fmt.Println("Максимум:", d)
+		}
+	} else if e > c {
+		if e > d {
+			fmt.Println("Максимум:", e)
+		}
+	} else {
+		fmt.Println("Числа равны")
+	}
+
+	//скидка по сумме
+	var sum, discount float64
+
+	fmt.Println("Введите сумму покупок")
+	_, err = fmt.Scanln(&sum)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	if sum < 1000 {
+		discount = 0
+	} else if sum < 5000 {
+		discount = 0.10
+	} else {
+		discount = 0.20
+	}
+
+	finalSum := sum * (1 - discount)
+	fmt.Printf("Итог: %.2f\n", finalSum)
+
+	//Оценка по баллам
+	var score int
+
+	_, err = fmt.Scanln(&score)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	if score < 0 || score > 100 {
+		fmt.Println("Ошибка: некорректный балл")
+		return
+	}
+
+	if score >= 90 {
+		fmt.Println("A")
+	} else if score >= 75 {
+		fmt.Println("B")
+	} else if score >= 50 {
+		fmt.Println("C")
+	} else {
+		fmt.Println("F")
+	}
+
+	//Сезон по номеру месяца
+	var month int
+
+	_, err = fmt.Scanln(&month)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	if month < 1 || month > 12 {
+		fmt.Println("Ошибка: некорректный месяц")
+		return
+	}
+
+	if month == 12 || month <= 2 {
+		fmt.Println("Зима")
+	} else if month <= 5 {
+		fmt.Println("Весна")
+	} else if month <= 8 {
+		fmt.Println("Лето")
+	} else {
+		fmt.Println("Осень")
+	}
+
+	//Проверка логина
+	var login string
+
+	_, err = fmt.Scanln(&login)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	if len(login) < 5 {
+		fmt.Println("Слишком короткий логин")
+		return
+	}
+
+	if strings.Contains(login, " ") {
+		fmt.Println("Логин не должен содержать пробелы")
+		return
+	}
+
+	fmt.Println("Логин корректный")
 }
