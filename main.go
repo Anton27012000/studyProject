@@ -311,4 +311,101 @@ func main() {
 	}
 
 	fmt.Println("Логин корректный")
+
+	/*
+		День 4
+		Практика и ДЗ
+	*/
+
+	//Сумма от 1 до n
+	var numb int
+
+	_, err = fmt.Scanln(&numb)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
+
+	sum1 := 0
+	i := 1
+	for i <= numb {
+		sum1 += i
+		i++
+	}
+
+	fmt.Println(sum1)
+
+	//факториал
+	var numb1 int
+
+	_, err = fmt.Scanln(&numb1)
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
+
+	factorial := 0
+
+	for i := 1; i < numb1; i++ {
+		factorial *= i
+	}
+	fmt.Println("Factorial:", factorial)
+
+	//таблица умножения
+	var numb2 int
+
+	fmt.Print("Введите число от 1 до 10: ")
+	_, err = fmt.Scanln(&numb2)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	if numb2 < 1 || numb2 > 10 {
+		fmt.Println("Ошибка: число должно быть от 1 до 10")
+		return
+	}
+
+	for i := 1; i <= 10; i++ {
+		fmt.Printf("%d * %d = %d\n", numb2, i, numb2*i)
+	}
+
+	//количество четных и нечетных чисел
+	even := 0
+	odd := 0
+
+	for i := 1; i <= 5; i++ {
+		var num int
+		_, err = fmt.Scanln(&num)
+		if err != nil {
+			return
+		}
+
+		if num%2 == 0 {
+			even++
+		} else {
+			odd++
+		}
+	}
+
+	fmt.Println("Четных:", even)
+	fmt.Println("Нечетных:", odd)
+
+	//игра "угадай число"
+	secret := 7
+
+	for {
+		var guess int
+
+		fmt.Print("Введите число: ")
+		_, err = fmt.Scanln(&guess)
+		if err != nil {
+			fmt.Println("Error:", err)
+		}
+
+		if guess == secret {
+			fmt.Println("Угадал!")
+			break
+		}
+
+		fmt.Println("Неверно")
+	}
 }
