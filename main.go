@@ -206,21 +206,22 @@ func main() {
 		return
 	}
 
-	if c > d {
-		if c > e {
-			fmt.Println("Максимум:", c)
-		}
-	} else if d > c {
-		if d > e {
-			fmt.Println("Максимум:", d)
-		}
-	} else if e > c {
-		if e > d {
-			fmt.Println("Максимум:", e)
-		}
-	} else {
+	if c == d && d == e {
 		fmt.Println("Числа равны")
+		return
 	}
+
+	maxNumber := c
+
+	if d > maxNumber {
+		maxNumber = d
+	}
+
+	if e > maxNumber {
+		maxNumber = e
+	}
+
+	fmt.Println("Максимум:", maxNumber)
 
 	//скидка по сумме
 	var sum, discount float64
