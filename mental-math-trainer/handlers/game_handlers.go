@@ -7,15 +7,15 @@ import (
 	"fmt"
 )
 
-func HandleGame(gameStats *stats.Stats, level int) {
+func HandleGame(gameStats *stats.Stats, level int, operation mathgame.Operation) {
 
 	a, b := mathgame.GenerateNumbers(level)
 
-	operation := mathgame.RandomOperation()
+	op := mathgame.ResolveOperation(operation)
 
-	correctAnswer := mathgame.Calculate(a, b, operation)
+	correctAnswer := mathgame.Calculate(a, b, op)
 
-	fmt.Printf("%d %s %d = ", a, operation, b)
+	fmt.Printf("%d %s %d = ", a, op, b)
 
 	userAnswer := input.ReadFloat()
 

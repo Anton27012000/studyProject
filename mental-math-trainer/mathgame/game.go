@@ -8,11 +8,21 @@ import (
 type Operation string
 
 const (
-	Add Operation = "+"
-	Sub Operation = "-"
-	Mul Operation = "*"
-	Div Operation = "/"
+	Add    Operation = "+"
+	Sub    Operation = "-"
+	Mul    Operation = "*"
+	Div    Operation = "/"
+	Random Operation = "random"
 )
+
+func ResolveOperation(op Operation) Operation {
+
+	if op == Random {
+		return RandomOperation()
+	}
+
+	return op
+}
 
 func RandomOperation() Operation {
 

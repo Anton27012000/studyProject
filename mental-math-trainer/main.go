@@ -1,6 +1,7 @@
 package main
 
 import (
+	"awesomeProject/mental-math-trainer/mathgame"
 	"fmt"
 
 	"awesomeProject/mental-math-trainer/handlers"
@@ -43,12 +44,44 @@ func main() {
 			gameStats.SetLevel(selectDifficulty())
 
 		case 2:
-			handlers.HandleGame(gameStats, gameStats.CurrentLevel)
+			handlers.HandleGame(
+				gameStats,
+				gameStats.CurrentLevel,
+				mathgame.Add,
+			)
 
 		case 3:
-			gameStats.Print()
+			handlers.HandleGame(
+				gameStats,
+				gameStats.CurrentLevel,
+				mathgame.Sub,
+			)
 
 		case 4:
+			handlers.HandleGame(
+				gameStats,
+				gameStats.CurrentLevel,
+				mathgame.Mul,
+			)
+
+		case 5:
+			handlers.HandleGame(
+				gameStats,
+				gameStats.CurrentLevel,
+				mathgame.Div,
+			)
+
+		case 6:
+			handlers.HandleGame(
+				gameStats,
+				gameStats.CurrentLevel,
+				mathgame.Random,
+			)
+
+		case 7:
+			gameStats.Print()
+
+		case 8:
 			fmt.Println("Выход...")
 			return
 

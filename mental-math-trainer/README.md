@@ -76,3 +76,11 @@
 ```bash
 go run ./mental-math-trainer
 ```
+
+# FAQ
+Не забываем о красоте:
+
+```bash
+gofmt -w .
+```
+
