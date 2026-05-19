@@ -34,10 +34,15 @@ func AverageScore(students []Student) float64 {
 }
 
 type Product struct {
-	ID      int
-	Name    string
-	Price   float64
-	InStock bool
+	ID       int
+	Name     string
+	Price    float64
+	Discount float64
+	InStock  bool
+}
+
+func (p *Product) DiscountedPrice() float64 {
+	return p.Price * (1 - p.Discount)
 }
 
 func FilterAvailable(products []Product) []Product {
@@ -73,6 +78,10 @@ type Task struct {
 	Title    string
 	Done     bool
 	Priority int
+}
+
+func (t *Task) IsDone() bool {
+	return t.Done
 }
 
 func FilterDoneTasks(tasks []Task) []Task {
